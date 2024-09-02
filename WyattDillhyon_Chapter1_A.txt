@@ -1,0 +1,35 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 09/1/2024
+---
+Program Description:
+This program sells a total of 20 cinema tickets to different buyers, while also only allowing a maximum of four tickets per sale. 
+This program then displays how many buyers bought tickets
+---
+Logical Steps:
+1. Create variables for buyers and tickets
+2. Program checks ticket count
+3. Program asks user for ticket amount, then intakes that input
+4. Program checks if input is more than five
+5. Program checks tickets remaining 
+6. If input is valid the program completes transaction and requests new input
+7. Once program has sold twenty tickets buyer count is presented
+---
+Variables:
+1. Tcount: Counts tickets
+2. Bcount: Counts Buyers/transactions
+3. Scount: Inputed sold tickets bought from buyer
+4. RemainCheck: Checks remaining tickets
+---
+Functions:
+1. Function Name: main
+Description: Runs program
+Parameters: NA
+Returns: NA
+2. Function Name: End
+Description: Ends program and shows statistics
+Parameters: NA
+Returns: NA
+---
+https://github.com/PlayerEcho/COP2373
