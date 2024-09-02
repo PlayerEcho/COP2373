@@ -1,0 +1,35 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 09/1/2024
+---
+Program Description:
+The program simulates a Magic Eight Ball, responding with random yes or no responses.
+---
+Logical Steps:
+1. Program creates file with random responses
+2. Program takes file and compiles list of responses
+3. Uses random function to pick a response from list as output
+4. Loop repeats interface for user until program is exited
+---
+Variables:
+1. resp: Option from seperate file
+2. lin: Line from seperate file
+3. num: random number from randint
+4. cont: Continues program from user
+---
+Functions:
+1. Function Name: main
+Description: Runs program
+Parameters: None
+Returns: None
+2. Function Name: eightball
+Description: Defines list from eightball responses
+Parameters: None
+Returns: None
+3. Function Name: answer
+Description: Prints random response from eightball
+Parameters: None
+Returns: None
+---
+https://github.com/PlayerEcho/COP2373
