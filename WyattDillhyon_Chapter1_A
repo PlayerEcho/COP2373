@@ -1,0 +1,38 @@
+# Wyatt Dillhyon / Assignment 1A
+# Allows multiple customers to buy a maximum of four tickets, while capping a total of twenty tickets sold
+
+def main():
+    # Assigning accumultaing variables
+    TCount = 20
+    BCount = 0
+
+    # Create loop until max tickets are sold
+    while TCount > 0:
+        print("")
+        print("How many tickets would like to purchase?")
+        Scount = input("Buy: ")
+        RemainCheck = int(TCount) - int(Scount)
+
+        # Makes it so a maximum purchase of four is only available at a time
+        if int(Scount) >= 5:
+            print("The maximum tickets one can buy is four.")
+
+        # Stops loop once all tickets are sold
+        elif RemainCheck > -1:
+            print("Complete")
+            TCount = RemainCheck
+            BCount += 1
+
+        # Ends program once all tickets are sold
+        else:
+            print("No tickets remaining.")
+
+    # SAhows numbers of buyers and tickets
+    def end():
+        print("All tickets sold.")
+        print("Number of buyers:")
+        print(f"{BCount}")
+
+    end()
+
+main()
