@@ -23,14 +23,14 @@ def main():
 
         # Turns file into list
         f1 = open("EightballOptions.txt", "r+")
-        data = f1.read()
-        ball = data.split("\n")
+        resp = f1.read()
+        lin = resp.split("\n")
 
         # What chooses random response as output
         def answer():
             num = random.randint(0,11)
             print("........")
-            print(ball[num])
+            print(lin[num])
             print()
 
         # Resets program
