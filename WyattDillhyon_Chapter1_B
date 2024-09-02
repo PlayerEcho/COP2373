@@ -2,7 +2,6 @@
 # Simulation of a Magic Eight Ball, giving the user random responses to a yes or no question
 import random
 def main():
-
     def eightball():
         # Opens seperate text file
         f1 = open("EightballOptions.txt", "w")
@@ -20,13 +19,10 @@ def main():
         f1.write("I don't think so. \n")
         f1.write("Without a doubt, no. \n")
         f1.write("The answer is clearly NO! \n")
-
         f1.close()
-
 
         # Turns file into list
         f1 = open("EightballOptions.txt", "r+")
-
         data = f1.read()
         ball = data.split("\n")
 
@@ -42,10 +38,5 @@ def main():
         while cont != "n":
             answer()
             cont = input("Would you like to continue? (y/n): ")
-
-
-
-
     eightball()
-
 main()
