@@ -1,0 +1,51 @@
+# Wyatt Dillhyon / Assignment 1B
+# Simulation of a Magic Eight Ball, giving the user random responses to a yes or no question
+import random
+def main():
+
+    def eightball():
+        # Opens seperate text file
+        f1 = open("EightballOptions.txt", "w")
+
+        # Write potential options from 8ball responses
+        f1.write("Yes, of course! \n")
+        f1.write("Without a doubt, yes. \n")
+        f1.write("You can count on it. \n")
+        f1.write("For sure! \n")
+        f1.write("Ask me later! \n")
+        f1.write("I'm not sure. \n")
+        f1.write("I can't tell you right now. \n")
+        f1.write("I'll tell you after my nap. \n")
+        f1.write("No way! \n")
+        f1.write("I don't think so. \n")
+        f1.write("Without a doubt, no. \n")
+        f1.write("The answer is clearly NO! \n")
+
+        f1.close()
+
+
+        # Turns file into list
+        f1 = open("EightballOptions.txt", "r+")
+
+        data = f1.read()
+        ball = data.split("\n")
+
+        # What chooses random response as output
+        def answer():
+            num = random.randint(0,11)
+            print("........")
+            print(ball[num])
+            print()
+
+        # Resets program
+        cont = input('Ask a yes or no question ("n" to end): ')
+        while cont != "n":
+            answer()
+            cont = input("Would you like to continue? (y/n): ")
+
+
+
+
+    eightball()
+
+main()
