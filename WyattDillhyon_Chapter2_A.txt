@@ -1,0 +1,39 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 09/15/2024
+---
+Program Description:
+The program takes a written sentence from the user, 
+reads it and notes if any keywords are in the sentence. 
+Then displays the data of how many words there are, how 
+likely the message is spam, and the words found.
+---
+Logical Steps:
+1. Program states list of potential words
+2. Program creates spam score and adds 1 per found word
+3. Program interprets spam score as its likelihood of spam
+4. Program displays its function and requests input
+5. Program calculates score and displays data
+---
+Variables:
+1. spam_words: Database of recognized spam words
+2. spam_score: Iteration of present_words to calculate likelihood of spam
+3. present_words: Represents number of spam words found in input
+4. keyword: Singular word in database of spam_words
+---
+Functions:
+1. Function Name: main
+Description: Runs program
+Parameters: None
+Returns: None
+2. Function Name: work_spam_score
+Description: Adds to spam score per found word
+Parameters: None
+Returns: None
+3. Function Name: spam_chance
+Description: Calculates likelihood of spam
+Parameters: None
+Returns: None
+---
+https://github.com/PlayerEcho/COP2373
