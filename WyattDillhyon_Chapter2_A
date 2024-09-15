@@ -1,0 +1,41 @@
+spam_words = ["act now", "expiring soon", "hurry", "last chance", "free", "100% off", "exclusive offer",
+"rare opportunity", "Order status", "order shipped", "buy", "money", "earn", "hundred dollars", "thousand dollars",
+"million dollars", "billion dollars", "risk free", "satisfaction gaurenteed", "Save up to", "Save big money",
+"call now", "click now", "buy now", "act quick", "instant", "limited time", "new customer", "please read", "sign up free"]
+
+def work_spam_score(message):
+    spam_score = 0
+    present_words = []
+    for keyword in spam_words:
+        if keyword in message.lower():
+            spam_score += 1
+            present_words.append(keyword)
+    return spam_score, present_words
+
+def spam_chance(spam_score):
+    if spam_score >= 10:
+        return "High chance message is spam"
+    elif 6 <= spam_score < 10:
+        return "Medium chance message is spam"
+    elif 3 <= spam_score < 6:
+        return "Low chance message is spam"
+    else:
+        return "Unlikely message is spam"
+
+def main():
+    print("Spam Detection Application")
+    email_message = input("Enter potential spam email: ")
+    
+    spam_score, present_words = work_spam_score(email_message)
+    spam_likelihood = spam_chance(spam_score)
+    
+    print(f"\nSpam Score: {spam_score}")
+    print(f"Chance of being spam: {spam_likelihood}")
+    
+    if present_words:
+        print("Words reported to spam score: ")
+        for keyword in present_words:
+            print(f"- {keyword}")
+
+if __name__ == "__main__":
+    main()
