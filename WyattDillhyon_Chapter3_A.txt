@@ -1,0 +1,38 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 09/22/2024
+---
+Program Description:
+The program takes inputs from user about the types of expenses and
+the amount spent per expense. It then returns the total, highest, 
+and lowest expenses.
+---
+Logical Steps:
+1.Program prompts the user to enter the type of expense.
+2.Program requests the user to input the amount for each expense.
+3.Program checks for valid input and stores the expenses in a list.
+4.Program calculates the total expense, highest expense, and lowest expense.
+5.Program displays a summary of the collected expense data.
+---
+Variables:
+expenses: A list to store tuples of expense type and amount.
+total_expense: A float representing the sum of all expenses.
+highest_expense: A tuple representing the highest expense (type and amount).
+lowest_expense: A tuple representing the lowest expense (type and amount).
+---
+Functions:
+1. Function Name: main
+Description: Runs program
+Parameters: None
+Returns: None
+2. Function Name: get_expenses
+Description: takes input from user for expenses until user responds "done".
+Parameters: None
+Returns: List of expenses and amounts.
+3. Function Name: analyze_expenses
+Description: Takes list of expenses and calculates total, highest and lowest.
+Parameters: None
+Returns: List containing highest, lowest, and total expense.
+---
+https://github.com/PlayerEcho/COP2373
