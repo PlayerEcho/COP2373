@@ -1,0 +1,46 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 10/12/2024
+---
+Program Description:
+The program validates whether certain inputs are valid for phone numbers, social security numbers, and zip codes.
+---
+Logical Steps:
+1. Program prompts for a phone number.
+2. Program prompts for a Social Security number.
+3. Program prompts for a ZIP code.
+4. Program checks the validity of each input using regular expressions.
+5. Program displays the validation results for the phone number, SSN, and ZIP code.
+---
+Variables:
+phone: Represents inputed phone number
+ssn: Represents inputed social security number
+zip_code: Represents inputed zip code
+is_valid_phone: A boolean validating phone number
+is_valid_ssn: A boolean validating ssn
+is_valid_zip: A boolean validating zip code
+---
+Functions:
+Function Name: main
+Description: Runs the program 
+Parameters: None
+Returns: None
+
+Function Name: validate_phone_number
+Description: Validates the format of a phone number using a regular expression.
+Parameters: phone 
+Returns: Indication if number is valid
+
+Function Name: validate_ssn
+Description: Validates the format of a Social Security number using a regular expression.
+Parameters: ssn 
+Returns: Indication if ssn is valid
+
+Function Name: validate_zip_code
+Description: Validates the format of a ZIP code using a regular expression.
+Parameters: zip_code 
+Returns: Indicates if zip code is valid
+
+---
+https://github.com/PlayerEcho/COP2373
