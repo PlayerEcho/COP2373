@@ -1,0 +1,35 @@
+import re
+
+def validate_phone_number(phone):
+    # Regular expression for validating phone number
+    pattern = re.compile(r'^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$')
+    return bool(pattern.match(phone))
+
+def validate_ssn(ssn):
+    # Regular expression for validating Social Security number
+    pattern = re.compile(r'^\d{3}-\d{2}-\d{4}$')
+    return bool(pattern.match(ssn))
+
+def validate_zip_code(zip_code):
+    # Regular expression for validating ZIP code 
+    pattern = re.compile(r'^\d{5}(-\d{4})?$')
+    return bool(pattern.match(zip_code))
+
+def main():
+    phone = input("Enter a phone number (e.g, 123-456-7890): ")
+    ssn = input("Enter a Social Security number (e.g, 123-45-6789): ")
+    zip_code = input("Enter a ZIP code (e.g, 12345 or 12345-6789): ")
+    
+    # Validate the inputs
+    is_valid_phone = validate_phone_number(phone)
+    is_valid_ssn = validate_ssn(ssn)
+    is_valid_zip = validate_zip_code(zip_code)
+    
+    # Displays the results
+    print(f"Phone number valid: {is_valid_phone}")
+    print(f"Social Security number valid: {is_valid_ssn}")
+    print(f"ZIP code valid: {is_valid_zip}")
+
+# Run the main function 
+if __name__ == "__main__":
+    main()
