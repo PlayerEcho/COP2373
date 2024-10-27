@@ -1,0 +1,20 @@
+import re
+
+def main():
+    # Ask for input
+    text = input("Enter sentences (press Enter to finish):\n")
+
+    # Extract sentences
+    # Consideres decimal places
+    sentences = re.findall(r'[^.!?]+[.!?]', text)
+
+    # Display each sentence
+    print("\nSentences:")
+    for sentence in sentences:
+        print(sentence.strip())
+
+    # Display the count of sentences
+    print(f"\nTotal number of sentences: {len(sentences)}")
+
+if __name__ == "__main__":
+    main()
