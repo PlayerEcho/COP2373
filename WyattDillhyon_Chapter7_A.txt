@@ -1,0 +1,32 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 10/27/2024
+---
+Program Description:
+The program checks how many sentences are in the given input, while checking for decimal places.
+---
+Logical Steps:
+1. Program prompts the user to enter sentences.
+2. Program uses a regular expression to extract sentences from the input text.
+3. Program displays each extracted sentence.
+4. Program counts the total number of sentences extracted.
+5. Program displays the count of sentences.
+---
+Variables:
+text: Represents the input text
+sentences: A list containing the extracted sentences from the input text.
+---
+Functions:
+Function Name: main
+Description: Runs the program 
+Parameters: None
+Returns: None
+
+Function Name: re.findall
+Description: Finds and extracts sentences from input
+Parameters: r'[^.!?]+[.!?]'
+Returns: Extracted sentences in list form
+
+---
+https://github.com/PlayerEcho/COP2373
