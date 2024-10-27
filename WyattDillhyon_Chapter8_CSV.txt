@@ -1,0 +1,44 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 10/27/2024
+---
+Program Description:
+The program puts information for a students three exams into a CSV file, then can display the data.
+---
+Logical Steps:
+Program prompts the instructor for the number of students to enter.
+For each student, the program prompts for first and last name, as well as three exam grades
+Program writes the collected data to grades.csv with a header
+A separate program opens grades.csv for reading.
+Program reads the header and displays it.
+Program reads and displays each student's record
+---
+Variables:
+num_students: Represents the number of students to be entered.
+first_name: Represents the inputted first name of a student.
+last_name: Represents the inputted last name of a student.
+exam1, exam2, exam3: Represent the inputted exam grades of a student.
+csvfile: Represents the opened CSV file for writing or reading.
+writer: CSV writer object used for writing data to grades.csv.
+reader: CSV reader object used for reading data from grades.csv.
+header: Represents the header row read from the CSV file.
+---
+Functions:
+Function Name: main
+Description: Runs the program 
+Parameters: None
+Returns: None
+
+Function Name: csv.writer
+Description: Creates writer object to write the data
+Parameters: CSV file
+Returns: CSV writer object
+
+Function Name: csv.reader
+Description: Creates reader object to read the data
+Parameters: CSV file
+Returns: CSV reader object
+
+---
+https://github.com/PlayerEcho/COP2373
