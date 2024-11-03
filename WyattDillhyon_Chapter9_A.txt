@@ -1,0 +1,64 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 11/2/2024
+---
+Program Description:
+The program uses bank account operations such as deposits, withdrawls, and interest rates.
+---
+Logical Steps:
+1. Define the BankAcct class with attributes for name, account number, balance, and interest rate.
+2. Implement an __init__ method to initialize account attributes.
+3. Create methods for interest rate calculations, withdrawls, and depositing.
+4. Define a test_bank_acct function to create a sample account and demonstrate the functionalities of the BankAcct class.
+5. Run the test function to display results and account operations.
+---
+Variables:
+name: name of the account holder.
+account_number: unique account identifier.
+amount: current balance of the account.
+interest_rate: annual interest rate for the account.
+---
+Functions:
+Function Name: __init__
+Description: Initializes a new bank account with name, account number, initial amount, and interest rate.
+Parameters: name, account_number, amount, interest_rate
+Returns: None
+
+Function Name: adjust_interest_rate
+Description: Updates the account's interest rate.
+Parameters: new_rate
+Returns: None
+
+Function Name: withdraw
+Description: Withdraws a specified amount from the account if sufficient funds are available.
+Parameters: amount
+Returns: None
+
+Function Name: deposit
+Description: Deposits a specified amount into the account.
+Parameters: amount
+Returns: None
+
+Function Name: get_balance
+Description: Returns the current balance of the account.
+Parameters: None
+Returns: Current balance as a float
+
+Function Name: calculate_interest
+Description: Calculates the interest earned over a specified number of days.
+Parameters: days
+Returns: Interest amount as a float
+
+Function Name: __str__
+Description: Returns a string representation of the account details.
+Parameters: None
+Returns: String containing account holder's name, account number, balance, and interest rate
+
+Function Name: test_bank_acct
+Description: Tests the functionality of the BankAcct class by creating an account and performing operations.
+Parameters: None
+Returns: None
+
+---
+https://github.com/PlayerEcho/COP2373
