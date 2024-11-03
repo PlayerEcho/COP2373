@@ -1,0 +1,63 @@
+class BankAcct:
+    #Define class variables
+    def __init__(self, name, account_number, amount=0.0, interest_rate=0.0):
+        self.name = name
+        self.account_number = account_number
+        self.amount = amount
+        self.interest_rate = interest_rate
+    #Set interest Rate
+    def adjust_interest_rate(self, new_rate):
+        self.interest_rate = new_rate
+    #Withdraw specific amounts
+    def withdraw(self, amount):
+        if amount > self.amount:
+            print("Insufficient funds for withdrawal.")
+        else:
+            self.amount -= amount
+            print(f"Withdrew {amount}. New balance: {self.amount}")
+    #Deposit specified amount
+    def deposit(self, amount):
+        self.amount += amount
+        print(f"Deposited {amount}. New balance: {self.amount}")
+    #Return current balance
+    def get_balance(self):
+        return self.amount
+    #Calculate interest earned
+    def calculate_interest(self, days):
+        interest = (self.amount * self.interest_rate / 100) * (days / 365)
+        return interest
+    #Return string with account details
+    def __str__(self):
+        return (f"Account Holder: {self.name}\n"
+                f"Account Number: {self.account_number}\n"
+                f"Balance: {self.amount:.2f}\n"
+                f"Interest Rate: {self.interest_rate:.2f}%")
+
+def test_bank_acct():
+    # Create a new bank account
+    acct = BankAcct("John Doe", "123456789", 1000.0, 5.0)
+
+    # Display initial account details
+    print(acct)
+
+    # Deposit funds
+    acct.deposit(500)
+    
+    # Withdraw funds
+    acct.withdraw(300)
+    
+    # Attempt to withdraw more than available
+    acct.withdraw(1500)
+    
+    # Adjust interest rate
+    acct.adjust_interest_rate(6.0)
+    
+    # Calculate interest for a certain number of days
+    interest = acct.calculate_interest(30)
+    print(f"Interest earned in 30 days: {interest:.2f}")
+
+    # Display final account details
+    print(acct)
+
+# Run the test function
+test_bank_acct()
