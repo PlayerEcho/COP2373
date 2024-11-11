@@ -1,0 +1,73 @@
+import random
+
+class Card:
+    #Represents a single playing card.
+    suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+    values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+
+    def __init__(self, value, suit):
+        self.value = value
+        self.suit = suit
+
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
+
+class Deck:
+    #Represents Deck of Cards
+    def __init__(self):
+        self.cards = [Card(value, suit) for suit in Card.suits for value in Card.values]
+        self.shuffle()
+
+    def shuffle(self):
+        #Shuffles the deck.
+        random.shuffle(self.cards)
+
+    def deal(self, num_cards=5):
+        #Deals amount of cards from deck
+        dealt_cards = self.cards[:num_cards]
+        self.cards = self.cards[num_cards:]
+        return dealt_cards
+
+    def draw(self, num_cards=1):
+        #Draws a specified number of cards.
+        drawn_cards = self.cards[:num_cards]
+        self.cards = self.cards[num_cards:]
+        return drawn_cards
+def print_hand(hand):
+    #Helper function to print a hand of cards.
+    print("Your hand:")
+    for card in hand:
+        print(f"  {card}")
+
+def poker_game():
+    # Initialize the deck
+    deck = Deck()
+
+    # Deal 5 cards
+    hand = deck.deal(5)
+
+    # Show the initial hand
+    print_hand(hand)
+
+    # Prompt the user for cards to replace
+    user_input = input("Enter the numbers of the cards to replace (1-5), separated by commas (e.g., 1, 3, 5): ")
+
+    # Convert the input into a list of integers
+    indices_to_replace = [int(x) - 1 for x in user_input.split(',')]
+
+    # Replace the selected cards
+    for index in indices_to_replace:
+        if 0 <= index < 5:
+            print(f"Replacing {hand[index]}...")
+            new_card = deck.draw(1)[0] 
+            hand[index] = new_card 
+        else:
+            print(f"Invalid card number: {index + 1}. Please choose a number between 1 and 5.")
+
+    # Show the final hand
+    print("\nYour final hand:")
+    print_hand(hand)
+
+# Start the game
+if __name__ == "__main__":
+    poker_game()
