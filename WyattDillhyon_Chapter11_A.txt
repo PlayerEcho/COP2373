@@ -1,0 +1,60 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 11/11/2024
+---
+Program Description:
+The program deals a set of five cards from a standard deck of cards, and allows the user to replace any of the cards once.
+---
+Logical Steps:
+1. Define the Card class giving each card a suit and value
+2. Define the Deck class containing 52 cards and commands to deal and draw
+3. Combine the card and deck class so they refer to each other
+4. Use shuffle method to randomize each card
+5. Allow deck to deal a random card
+6. Allow deck to draw a random card
+7. Display the hand of cards to the user.
+8. Set the function to deal five cards, request a redeal, and display the new cards
+9. Run the poker_game function
+---
+Variables:
+suits: A list of the four suits in a deck of cards.
+values: A list of the values in a deck of cards.
+value: Stores the value of a specific card.
+suit: Stores the suit of a specific card.
+cards: A list containing all the cards in a deck, created from the combination of suits and values.
+deck: Represents the deck of cards, which is shuffled and used to deal or draw cards.
+hand: A list of cards dealt to the player, representing their current hand in the game.
+user_input: A string containing the player's input for which cards to replace.
+indices_to_replace: A list of integers indicating which cards in the hand the player wants to replace.
+index: A loop variable used to iterate over the indices of the cards to be replaced.
+new_card: Represents a single card drawn from the deck to replace an existing card in the hand.
+---
+Functions:
+Function Name: shuffle
+Description: Shuffles the deck in a random order
+Parameters: None
+Returns: None
+
+Function Name: deal
+Description: Deals specific number of cards
+Parameters: Restricted by specific amount of cards
+Returns: List of cards
+
+Function Name: draw
+Description: Draws a specific number of cards
+Parameters: Can only draw one card at a time
+Returns: Defined card
+
+Function Name: print_hand
+Description: Print the users initial hand
+Parameters: List of users cards
+Returns: None
+
+Function Name: poker_game
+Description: Deals five cards, asks for redeal, the displays new cards
+Parameters: None
+Returns: None
+
+---
+https://github.com/PlayerEcho/COP2373
