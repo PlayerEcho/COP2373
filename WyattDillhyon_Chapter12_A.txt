@@ -1,0 +1,60 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 11/19/2024
+---
+Program Description:
+The program analyzes student grade data and gives each exams mean, median, standard deviation, minimum, and maximum.
+---
+Logical Steps:
+1. Load the student grades data from a CSV file into a list, skipping the header.
+2. Convert the data into a NumPy array for efficient manipulation.
+3. Display the first few rows of the dataset to understand its structure.
+4. Calculate and print the mean, median, standard deviation, minimum, and maximum for each exam.
+5. Flatten the data to calculate overall statistics across all exams combined.
+6. Count the number of students passing and failing each exam.
+7. Calculate the overall pass percentage across all exams by counting the total passing grades and dividing by the total number of grades.
+---
+Variables:
+data: 2D NumPy array containing the grades for all students across three exams.
+exam1, exam2, exam3: Individual grades for each exam (columns in the CSV).
+passing_grade: Threshold for passing an exam, set to 60.
+all_grades: 1D array created by flattening the data array to consider all grades across exams.
+exams_mean, exams_median, exams_std, exams_min, exams_max: Arrays storing statistical measures for each exam.
+overall_mean, overall_median, overall_std, overall_min, overall_max: Scalar values for overall statistics across all exams.
+passes_per_exam, fails_per_exam: Arrays storing the count of passes and fails for each exam.
+total_passes, total_students: Total number of passing grades and total number of grades, used to calculate the overall pass percentage.
+overall_pass_percentage: The percentage of students passing across all exams.
+---
+Functions:
+Function Name: main
+Description: main function of program to initiate
+Parameters: None
+Returns: None
+
+Function Name: np.mean
+Description: Calculates mean for each exam
+Parameters: None
+Returns: Exam mean
+
+Function Name: np.median
+Description: Calculates median for each exam
+Parameters: None
+Returns: Exam median
+
+Function Name: np.std
+Description: Calculates standard deviation for each exam
+Parameters: None
+Returns: Exam standard deviation
+
+Function Name: np.min
+Description: Calculates min for each exam
+Parameters: None
+Returns: Exam minimum
+
+Function Name: np.max
+Description: Calculates max for each exam
+Parameters: None
+Returns: Exam maximum
+---
+https://github.com/PlayerEcho/COP2373
