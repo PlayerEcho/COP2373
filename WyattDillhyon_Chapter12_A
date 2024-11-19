@@ -1,0 +1,77 @@
+import csv
+import numpy as np
+
+def main():
+    # Load the data CSV file 
+    data = []
+    with open('grades.csv', 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        header = next(reader)  
+        
+        # Read the student data and convert to a list of lists
+        for row in reader:
+            data.append([row[2], row[3], row[4]])
+
+    # Convert the data into a numpy array
+    data = np.array(data, dtype=int)
+
+    # Print the first few rows 
+    print("First few rows of the dataset:")
+    print(data[:5])  
+    print()
+
+    # Calculate and print statistics for each exam
+    print("Statistics for each exam:")
+    exams_mean = np.mean(data, axis=0)
+    exams_median = np.median(data, axis=0)
+    exams_std = np.std(data, axis=0)
+    exams_min = np.min(data, axis=0)
+    exams_max = np.max(data, axis=0)
+
+    # Display exam statistics
+    for i, (mean, median, std, min_val, max_val) in enumerate(zip(exams_mean, exams_median, exams_std, exams_min, exams_max)):
+        print(f"Exam {i+1}:")
+        print(f"  Mean: {mean:.2f}")
+        print(f"  Median: {median}")
+        print(f"  Standard Deviation: {std:.2f}")
+        print(f"  Minimum: {min_val}")
+        print(f"  Maximum: {max_val}")
+        print()
+
+    # Calculate and print overall statistics for all exams combined
+    all_grades = data.flatten()  
+    overall_mean = np.mean(all_grades)
+    overall_median = np.median(all_grades)
+    overall_std = np.std(all_grades)
+    overall_min = np.min(all_grades)
+    overall_max = np.max(all_grades)
+
+    # Display overall statistics
+    print("Overall statistics across all exams:")
+    print(f"  Mean: {overall_mean:.2f}")
+    print(f"  Median: {overall_median}")
+    print(f"  Standard Deviation: {overall_std:.2f}")
+    print(f"  Minimum: {overall_min}")
+    print(f"  Maximum: {overall_max}")
+    print()
+
+    # Determine the number of students who passed and failed each exam
+    passing_grade = 60
+    passes_per_exam = np.sum(data >= passing_grade, axis=0)
+    fails_per_exam = data.shape[0] - passes_per_exam
+
+    # Print the number of passes and fails per exam
+    for i, (passes, fails) in enumerate(zip(passes_per_exam, fails_per_exam)):
+        print(f"Exam {i+1}: Passed: {passes}  Failed: {fails}")
+    print()
+
+    # Calculate and print the overall pass percentage across all exams
+    total_passes = np.sum(data >= passing_grade)
+    total_students = data.size  
+    overall_pass_percentage = (total_passes / total_students) * 100
+
+    # Print the overall pass percentage
+    print(f"Overall pass percentage across all exams: {overall_pass_percentage:.2f}%")
+
+if __name__ == "__main__":
+    main()
