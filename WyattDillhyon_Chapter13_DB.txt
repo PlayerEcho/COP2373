@@ -1,0 +1,51 @@
+Technical Design Document Template
+---
+Name: Wyatt Dillhyon
+Date Created: 11/26/2024
+---
+Program Description:
+The program simulates population growth in Florida cities and projected population growth
+---
+Logical Steps:
+1. Create database for cities
+2. Input the initial data for population
+3. Simulate growth with equation in matplotlib
+4. Make graph in matplotlib
+5. Show user interface to interact with graph and data
+---
+Variables:
+conn: A connection object to the SQLite database.
+cursor: A cursor object for executing SQL commands on the database.
+florida_cities: A list of tuples containing the city names and their population in 2023.
+growth_rate: The annual growth rate for simulating population growth.
+years_to_simulate: The number of years to simulate population growth.
+cities: A list of cities in Florida to be used in the simulation.
+---
+Functions:
+Function Name: main
+Description: runs program
+Parameters: None
+Returns: None
+
+Function Name: create_database
+Description: Initializes the SQLite database and creates the population table if it doesn't exist.
+Parameters: None
+Returns: connection, cursor
+
+Function Name: insert_initial_data
+Description: Inserts initial population data for 10 cities in Florida for the year 2023 into the population table.
+Parameters: cursor 
+Returns: None
+
+Function Name: simulate_population_growth
+Description: Simulates population growth for each city at a 2% annual growth rate for the next 20 years and inserts the results into the database.
+Parameters: cusor
+Returns: None
+
+Function Name: plot_population_growth
+Description: Retrieves the population data for a selected city and plots it over time using Matplotlib.
+Parameters: cursor, city
+Returns: None
+
+---
+https://github.com/PlayerEcho/COP2373
