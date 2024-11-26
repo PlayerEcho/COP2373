@@ -1,0 +1,117 @@
+import sqlite3
+import matplotlib.pyplot as plt
+
+# Function to create the database and the population table
+def create_database():
+    conn = sqlite3.connect('population_WD.db')
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS population (
+            city TEXT,
+            year INTEGER,
+            population INTEGER
+        )
+    ''')
+
+    conn.commit()
+    return conn, cursor
+
+# Inserting Initial Population Data for Florida Cities
+def insert_initial_data(cursor):
+    florida_cities = [
+        ('Miami', 2023, 470914),
+        ('Orlando', 2023, 309954),
+        ('Tampa', 2023, 407599),
+        ('Jacksonville', 2023, 949611),
+        ('St. Petersburg', 2023, 265098),
+        ('Hialeah', 2023, 237059),
+        ('Fort Lauderdale', 2023, 187500),
+        ('Tallahassee', 2023, 197000),
+        ('Gainesville', 2023, 135000),
+        ('Naples', 2023, 220000)
+    ]
+
+    # Insert the data into the population table
+    cursor.executemany('''
+        INSERT INTO population (city, year, population) 
+        VALUES (?, ?, ?)
+    ''', florida_cities)
+
+# Simulating Population Growth 
+def simulate_population_growth(cursor):
+    growth_rate = 0.02  
+    years_to_simulate = 20
+    cities = ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'St. Petersburg', 
+              'Hialeah', 'Fort Lauderdale', 'Tallahassee', 'Gainesville', 'Naples']
+
+    # Get current population data from the database for each city
+    for city in cities:
+        cursor.execute('SELECT population FROM population WHERE city = ? AND year = 2023', (city,))
+        initial_population = cursor.fetchone()[0]
+
+        # Simulate population growth over the next 20 years
+        for year in range(2024, 2024 + years_to_simulate):
+            new_population = int(initial_population * ((1 + growth_rate) ** (year - 2023)))
+            cursor.execute('INSERT INTO population (city, year, population) VALUES (?, ?, ?)', 
+                           (city, year, new_population))
+
+    cursor.connection.commit()
+
+# Plot Population Growth
+def plot_population_growth(cursor, city):
+    # Get population data for the selected city
+    cursor.execute('SELECT year, population FROM population WHERE city = ? ORDER BY year', (city,))
+    data = cursor.fetchall()
+
+    # Extract years and populations for plot
+    years = [year for year, population in data]
+    populations = [population for year, population in data]
+
+    # Create the plot
+    plt.figure(figsize=(10, 6))
+    plt.plot(years, populations, marker='o', color='b', label=f'Population Growth for {city}')
+    plt.title(f'Population Growth for {city} (2023 - 2043)', fontsize=14)
+    plt.xlabel('Year', fontsize=12)
+    plt.ylabel('Population', fontsize=12)
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+# Main function 
+def main():
+    # Create the database and table
+    conn, cursor = create_database()
+
+    # Insert initial data into the population table
+    insert_initial_data(cursor)
+
+    # Simulate population growth and insert data for the next 20 years
+    simulate_population_growth(cursor)
+
+    # Ask the user for a city and plot its population growth
+    cities = ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'St. Petersburg', 
+              'Hialeah', 'Fort Lauderdale', 'Tallahassee', 'Gainesville', 'Naples']
+    
+    while True:
+        print("Choose a city to see population growth:")
+        for i, city in enumerate(cities, 1):
+            print(f"{i}. {city}")
+        
+        try:
+            choice = int(input("Enter the number of the city (or 0 to exit): "))
+            if choice == 0:
+                print("Exiting program.")
+                break
+            elif 1 <= choice <= len(cities):
+                selected_city = cities[choice - 1]
+                plot_population_growth(cursor, selected_city)
+            else:
+                print("Invalid choice. Please choose a number between 1 and 10.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    conn.close()
+
+if __name__ == '__main__':
+    main()
